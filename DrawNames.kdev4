@@ -1,0 +1,4 @@
+[Project]
+Name=DrawNames
+Manager=KDevCMakeManager
+VersionControl=kdevgit
