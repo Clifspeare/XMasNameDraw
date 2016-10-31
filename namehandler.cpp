@@ -69,6 +69,7 @@ void NameHandler::drawNames(const std::vector<std::pair<std::string, std::string
     rng.seed(std::random_device()());
     std::uniform_int_distribution<std::mt19937::result_type> uint_dist(0, names.size() - 1);
     std::cout << "Great!" << std::endl << "Now we can start the process of drawing names for each secret santa participant." << std::endl;
+    std::system("clear");
     for (auto &p : names) {
         std::cout << p << ", please come to the computer.  Press enter when ready, but make sure no one else is watching! ;)" << std::endl;
         recipient = p;
@@ -76,7 +77,8 @@ void NameHandler::drawNames(const std::vector<std::pair<std::string, std::string
         while (isexcluded(p, recipient, excludedNames)) {
             recipient = names.at(uint_dist(rng));
         }
-        std::cout << "Your secret santa gift recipient is: " << recipient;
+        this->assigned.emplace(recipient, p);
+        std::cout << "Your secret santa gift recipient is: " << recipient << std::endl;
         //^std::cout << "We're about to give you your secret santa recipient name" << std::endl;^
         std::cout << "Before you leave, don't forget to write it down; we won't remember it for you." << std::endl;
         std::cout << "You see..." << std::endl;

@@ -12,6 +12,7 @@ int main(int argc, char **argv) {
     }
     nhandle.getNames();
     nhandle.drawNames(exhandler.getExclusions());
-    exit(0);
+    std::cout << "Thanks for playing. " << " Merry Christmas!" << std::endl;
+    return 0;
 
 }
